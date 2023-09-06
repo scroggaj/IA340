@@ -1,16 +1,15 @@
 -- Create schemas
 
 -- Create tables
-CREATE TABLE IF NOT EXISTS ""Professor Table""
+CREATE TABLE IF NOT EXISTS Professor
 (
     p_email VARCHAR(50) NOT NULL,
     p_name VARCHAR(50) NOT NULL,
     office VARCHAR(10) NOT NULL UNIQUE,
-    column INTEGER,
     PRIMARY KEY(p_email)
 );
 
-CREATE TABLE IF NOT EXISTS ""Student Table ""
+CREATE TABLE IF NOT EXISTS Student
 (
     s_email VARCHAR(50) NOT NULL,
     s_name VARCHAR(50) NOT NULL,
@@ -18,7 +17,7 @@ CREATE TABLE IF NOT EXISTS ""Student Table ""
     PRIMARY KEY(s_email)
 );
 
-CREATE TABLE IF NOT EXISTS ""Course Table ""
+CREATE TABLE IF NOT EXISTS Course
 (
     c_number VARCHAR(50) NOT NULL,
     c_name VARCHAR(50) NOT NULL,
@@ -27,7 +26,7 @@ CREATE TABLE IF NOT EXISTS ""Course Table ""
     PRIMARY KEY(c_number)
 );
 
-CREATE TABLE IF NOT EXISTS ""Enroll Table ""
+CREATE TABLE IF NOT EXISTS Enroll
 (
     c_number VARCHAR(50) NOT NULL,
     s_email VARCHAR(50) NOT NULL,
@@ -36,24 +35,23 @@ CREATE TABLE IF NOT EXISTS ""Enroll Table ""
 
 
 -- Create FKs
-ALTER TABLE "Course Table "
+ALTER TABLE Course
     ADD    FOREIGN KEY (p_email)
-    REFERENCES "Professor Table"(p_email)
+    REFERENCES Professor(p_email)
     MATCH SIMPLE
 ;
     
-ALTER TABLE "Enroll Table "
+ALTER TABLE Enroll
     ADD    FOREIGN KEY (c_number)
-    REFERENCES "Course Table "(c_number)
+    REFERENCES Course(c_number)
     MATCH SIMPLE
 ;
     
-ALTER TABLE "Enroll Table "
+ALTER TABLE Enroll
     ADD    FOREIGN KEY (s_email)
-    REFERENCES "Student Table "(s_email)
+    REFERENCES Student(s_email)
     MATCH SIMPLE
 ;
     
 
 -- Create Indexes
-
