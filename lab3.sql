@@ -30,5 +30,21 @@ values ('s1@jmu.edu','c1'),
 select * from enroll
 
 -- 2.5
-/* insert professor first, because p3 in the professor table references p3 in the course table; therefore, p3 must be entered in the professor table first */
+/* Because p3 is in the professor table and it references p3 in the course table, p3 must be entered in the professor table first */
+insert into professor(p_email,p_name,office)
 
+values('p3@jmu.edu','p3','o3');
+
+insert into course(c_number,c_name,room,p_email)
+
+values('c4','facebook','r1','p3@jmu.edu')
+
+-- 2.6
+/* you have to update the prexisting data first before you delete it */
+
+update course
+set p_email = 'p3@jmu.edu'
+where p_email = 'p1@jmu.edu' ;
+
+delete from professor
+where p_email = 'p1@jmu.edu'
