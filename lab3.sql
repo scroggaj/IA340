@@ -48,3 +48,8 @@ where p_email = 'p1@jmu.edu' ;
 
 delete from professor
 where p_email = 'p1@jmu.edu'
+
+-- 2.7
+select * from enroll
+
+-- 2.8 
